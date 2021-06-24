@@ -16,7 +16,6 @@ class ViewController: UIViewController {
 
     private lazy var cityLabel: UILabel = {
         let label = UILabel()
-        label.text = weatherData.name
         return label
     }()
 
@@ -28,6 +27,11 @@ class ViewController: UIViewController {
     private lazy var celsiumNumberLabel: UILabel = {
         let label = UILabel()
         return label
+    }()
+
+    private lazy var weatherImage: UIImageView = {
+        let img = UIImageView()
+        return img
     }()
 
     override func viewDidLoad() {
@@ -48,8 +52,9 @@ class ViewController: UIViewController {
 
     func updateView() {
         cityLabel.text = weatherData.name
-        detailForecastLabel.text = "Погодные условия"
+        detailForecastLabel.text = DataSource.weatherIDs[weatherData.weather[0].id]
         celsiumNumberLabel.text = weatherData.main.temp.description
+        weatherImage.image = UIImage(named: weatherData.weather[0].icon)
     }
 
     func startLocationManager() {
@@ -92,6 +97,7 @@ class ViewController: UIViewController {
         view.addSubview(cityLabel)
         view.addSubview(detailForecastLabel)
         view.addSubview(celsiumNumberLabel)
+        view.addSubview(weatherImage)
 
         cityLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -106,6 +112,11 @@ class ViewController: UIViewController {
         celsiumNumberLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(detailForecastLabel).offset(50)
+        }
+
+        weatherImage.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(celsiumNumberLabel).offset(50)
         }
     }
 }
