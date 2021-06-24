@@ -71,6 +71,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ED86B00B26848BCF0084C412 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		EDA90061267C967F00D9ACB4 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +99,7 @@
 		EDA9006C267C967F00D9ACB4 /* WeatherAppTest */ = {
 			isa = PBXGroup;
 			children = (
+				ED86B00B26848BCF0084C412 /* Extension */,
 				EDA90089267C97EF00D9ACB4 /* Helper */,
 				EDA90087267C979300D9ACB4 /* View */,
 				EDA90086267C978500D9ACB4 /* Model */,
