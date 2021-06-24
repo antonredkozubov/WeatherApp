@@ -34,6 +34,11 @@ class ViewController: UIViewController {
         return img
     }()
 
+    private lazy var searchButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         startLocationManager()
@@ -48,12 +53,16 @@ class ViewController: UIViewController {
 
         detailForecastLabel.font = detailForecastLabel.font.withSize(14)
         celsiumNumberLabel.font = celsiumNumberLabel.font.withSize(30)
+
+        searchButton.backgroundColor = #colorLiteral(red: 0.3529411765, green: 0.4352941176, blue: 0.9764705882, alpha: 1)
+        searchButton.layer.cornerRadius = 7
+        searchButton.setTitle("Город", for: .normal)
     }
 
     func updateView() {
         cityLabel.text = weatherData.name
         detailForecastLabel.text = DataSource.weatherIDs[weatherData.weather[0].id]
-        celsiumNumberLabel.text = weatherData.main.temp.description
+        celsiumNumberLabel.text = weatherData.main.temp.description + "°"
         weatherImage.image = UIImage(named: weatherData.weather[0].icon)
     }
 
@@ -98,6 +107,7 @@ class ViewController: UIViewController {
         view.addSubview(detailForecastLabel)
         view.addSubview(celsiumNumberLabel)
         view.addSubview(weatherImage)
+        view.addSubview(searchButton)
 
         cityLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -117,6 +127,13 @@ class ViewController: UIViewController {
         weatherImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(celsiumNumberLabel).offset(50)
+        }
+
+        searchButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-200)
+            $0.width.equalToSuperview().multipliedBy(0.42)
+            $0.height.equalTo(40)
         }
     }
 }
