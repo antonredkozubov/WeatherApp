@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     var weatherData = WeatherData()
     let locationManager = CLLocationManager()
+    let anotherWeaher = AnotherCityWeather()
 
     private lazy var cityLabel: UILabel = {
         let label = UILabel()
@@ -43,6 +44,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         startLocationManager()
         settupUi()
+
+        searchButton.addTarget(self, action: #selector(changeCityTapped), for: .touchUpInside)
     }
 
     func settupUi() {
@@ -97,6 +100,17 @@ class ViewController: UIViewController {
             }
         }
         task.resume()
+    }
+    // MARK: - Actions
+    @objc func changeCityTapped() {
+        
+        print(#function)
+        self.presentSearchAlertController(withTitle: "Введите город",
+                                          message: nil,
+                                          style: .alert) {
+            city in
+            self.anotherWeaher.updateInAnotherCityWeather(in: city)
+        }
     }
 
     // MARK: - Constrains
