@@ -103,7 +103,7 @@ class ViewController: UIViewController {
     }
     // MARK: - Actions
     @objc func changeCityTapped() {
-        
+
         print(#function)
         self.presentSearchAlertController(withTitle: "Введите город",
                                           message: nil,

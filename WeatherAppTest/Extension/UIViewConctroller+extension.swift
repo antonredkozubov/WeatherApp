@@ -17,7 +17,7 @@ extension ViewController {
             let cities = ["Volgograd", "Moscow", "Viena"]
             textField.placeholder = cities.randomElement()
         }
-        let search = UIAlertAction(title: "Поиск", style: .default) { action in
+        let search = UIAlertAction(title: "Поиск", style: .default) { _ in
             let textField = alertController.textFields?.first
             guard let cityName = textField?.text else { return }
             if cityName != "" {

@@ -15,10 +15,10 @@ class AnotherCityWeather {
         let session = URLSession.shared
         let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)"
         guard let url = URL(string: urlString) else { return }
-        let task = session.dataTask(with: url) { data, _, error in
+        let task = session.dataTask(with: url) { data, _, _ in
             if let data = data {
                 let dataString = String(data: data, encoding: .utf8)
-                print(dataString)
+                print(dataString ?? "")
             }
         }
         task.resume()
