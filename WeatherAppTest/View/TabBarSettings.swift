@@ -33,22 +33,28 @@ class TabBarSettings: UITabBarController {
 
 extension TabBarSettings {
 
-    func tabs(submodules: Tabs) -> Tabs {
+    static func tabs(submodules: Tabs) -> Tabs {
 
-        let mainTabBarItem = UITabBarItem(title: "Main",
-                                          image: .add,
-                                          selectedImage: .add)
+        let mainTabBarItem = UITabBarItem(title: "",
+                                          image: UIImage.mainTab,
+                                          selectedImage: nil)
 
-        let dailyTabBarItem = UITabBarItem(title: "Daily",
-                                           image: .checkmark,
-                                           selectedImage: nil)
+        let dailyTabBarItem = UITabBarItem(title: "",
+                                            image: UIImage.dailyTab,
+                                            selectedImage: nil)
+
+//        let addCityTabBarItem = UITabBarItem(title: "",
+//                                              image: UIImage.addCityTab,
+//                                              selectedImage: nil)
 
         submodules.main.tabBarItem = mainTabBarItem
         submodules.daily.tabBarItem = dailyTabBarItem
+//        submodules.addCity.tabBarItem = addCityTabBarItem
 
         return (
             main: submodules.main,
             daily: submodules.daily
+//            addCity: submodules.addCity
         )
     }
 }

@@ -7,9 +7,6 @@ target 'WeatherAppTest' do
 
   # Pods for WeatherAppTest
 
-  pod 'Alamofire', '~> 5.2'
-  pod 'SwiftyJSON'
-  pod 'ObjectMapper', '~> 3.4'
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftLint'
 
