@@ -107,8 +107,7 @@ class ViewController: UIViewController {
         print(#function)
         self.presentSearchAlertController(withTitle: "Введите город",
                                           message: nil,
-                                          style: .alert) {
-            city in
+                                          style: .alert) { city in
             self.anotherWeaher.updateInAnotherCityWeather(in: city)
         }
     }

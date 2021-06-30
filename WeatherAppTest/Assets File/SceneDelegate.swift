@@ -16,15 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let submodules = (
-            main: ViewController(),
-            daily: DailyForecastViewController()
-        )
+        let viewController = TabBarSettings()
 
-        let tabBarController = TabBarSettings(tabs: submodules)
-
-        window.rootViewController = tabBarController
+        window.rootViewController = viewController
         window.makeKeyAndVisible()
+
         self.window = window
     }
 
